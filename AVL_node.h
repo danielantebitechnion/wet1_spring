@@ -1,3 +1,6 @@
+#ifndef DS_1_WET_AVL_NODE_H
+#define DS_1_WET_AVL_NODE_H
+
 #ifndef DS_WET1_AVL_node_H
 #define DS_WET1_AVL_node_H
 #include <iostream>
@@ -98,7 +101,7 @@ AVL_node<Key, Data>* AVL_node<Key, Data>::insert(const Key& key, const Data& dat
             //here we update our son with potential new son (happens when a roll is in action)
         }
     }
-    //right case
+        //right case
     else if(key > this->key){ // same for right
         if(this->right == nullptr) { // Check if this the right place to insert
             //add the new node to the right
@@ -137,7 +140,7 @@ AVL_node<Key, Data>* AVL_node<Key, Data>::remove(const Key& key) {
             throw KeyNotInTree();
         }
     }
-    //search for node in right
+        //search for node in right
     else if (this->key < key) {
         if (this->right != nullptr) {
             this->right = this->right->remove(key);
@@ -153,7 +156,7 @@ AVL_node<Key, Data>* AVL_node<Key, Data>::remove(const Key& key) {
             delete this;
             return nullptr;
         } else if ((this->left == nullptr && this->right != nullptr) ||
-                    (this->left != nullptr && this->right == nullptr)) {
+                   (this->left != nullptr && this->right == nullptr)) {
             if(this->left){
                 newRoot = this->left;
             }
@@ -366,14 +369,14 @@ template<class Key, class Data>
 void AVL_node<Key, Data>::print(const std::string& prefix, bool isLeft)
 {
     std::cout << prefix;
-    std::cout << (isLeft ? "|--" : "'--" );
+    std::cout << (isLeft ? "L--" : "R--" );
     // print the value of the node
     std::cout << this->key << std::endl;
     // enter the next tree level - left and right branch
     if(this->left != nullptr)
-        this->left->print( prefix + (isLeft ? "|   " : "    "), true);
+        this->left->print( prefix + (isLeft ? "L   " : "    "), true);
     if(this->right != nullptr)
-        this->right->print( prefix + (isLeft ? "|   " : "    "), false);
+        this->right->print( prefix + (isLeft ? "L   " : "    "), false);
 }
 
 template<class Key, class Data>
@@ -392,3 +395,5 @@ int AVL_node<Key, Data>::getSize() const {
 }
 
 #endif //DS_WET1_AVL_node_H
+
+#endif //DS_1_WET_AVL_NODE_H

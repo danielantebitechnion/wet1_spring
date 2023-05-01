@@ -10,13 +10,13 @@ private:
     int m_groupID;
     int m_groupSize;
     int* m_viewsAsGroup;
+    Tree<int, User*> m_groupUsers;
     int* m_totalGroupMembersViews;
     int m_groupVipCounter;
 public:
     Group() = default;
     Group(int groupID);
     ~Group() = default;
-    Tree<int, User> m_groupUsers;
 };
 
 

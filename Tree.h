@@ -1,5 +1,6 @@
-#ifndef DATASTRUCTUREWET2_TREE_H
-#define DATASTRUCTUREWET2_TREE_H
+#ifndef DS_1_WET_TREE_H
+#define DS_1_WET_TREE_H
+
 
 #include "AVL_node.h"
 
@@ -120,5 +121,4 @@ Tree<Key, Data>::~Tree() {
     delete root;
 }
 
-
-#endif //DATASTRUCTUREWET2_TREE_H
+#endif //DS_1_WET_TREE_H

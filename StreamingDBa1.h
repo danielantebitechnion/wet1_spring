@@ -16,13 +16,19 @@
 #define STREAMINGDBA1_H_
 
 #include "wet1util.h"
+#include "Tree.h"
+#include "Group.h"
+#include "Movie.h"
+#include "GenreTree.h"
 
 class streaming_database {
 private:
-	//
-	// Here you may add anything you want
-	//
-	
+    Tree<int, User> m_allUsers;
+    Tree<int, Group> m_allGroups;
+    Tree<int, Movie> m_allMovies;
+    Tree<GenreTree, Movie*>* m_treeArrayByGenre;
+    Tree<int, Group*> m_usersInGroups;
+
 public:
 	// <DO-NOT-MODIFY> {
 	

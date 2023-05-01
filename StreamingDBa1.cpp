@@ -1,19 +1,21 @@
 #include "StreamingDBa1.h"
 
-streaming_database::streaming_database()
+
+
+streaming_database::streaming_database() : m_allUsers(), m_allGroups(), m_allMovies(),
+                                           m_treeArrayByGenre(new Tree<GenreTree, Movie*>[GENRE_AMOUNT+1]), m_usersInGroups()
 {
-	// TODO: Your code goes here
 }
 
 streaming_database::~streaming_database()
 {
-	// TODO: Your code goes here
+	delete[] m_treeArrayByGenre;
 }
 
 
 StatusType streaming_database::add_movie(int movieId, Genre genre, int views, bool vipOnly)
 {
-	// TODO: Your code goes here
+	if(movieId < 0 || )
 	return StatusType::SUCCESS;
 }
 

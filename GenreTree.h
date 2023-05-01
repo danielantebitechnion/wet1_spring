@@ -1,3 +1,6 @@
+#ifndef DS_1_WET_GENRETREE_H
+#define DS_1_WET_GENRETREE_H
+
 #ifndef GENRE_TREE_H
 #define GENRE_TREE_H
 
@@ -24,3 +27,5 @@ public:
 };
 
 #endif //
+
+#endif //DS_1_WET_GENRETREE_H
