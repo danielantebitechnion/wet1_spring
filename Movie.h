@@ -6,16 +6,23 @@
 
 class Movie {
 private:
-    int movieId;
-    Genre genre;
-    double rating; // avarage rating of the movie
-    int views; // total views for a movie
-    bool vipOnly; // define if only vip users can watch this movie
+    int m_movieId;
+    Genre m_genre;
+    int m_totalRating; // sum of all ratings
+    int m_raterCount; // amount of watchers that rated the movie
+    int m_views; // total views for a movie
+    bool m_vipOnly; // define if only vip users can watch this movie
 public:
     Movie() = default;
     Movie(int movieId, Genre genre, int views, bool vipOnly);
     ~Movie() = default;
-
+    int getMovieId() const;
+    Genre getGenre() const;
+    double getAverageRating() const;
+    int getViews() const;
+    bool isVipOnly() const;
+    void increaseViews();
+    void updateRating(int rating);
 };
 
 #endif //DS_1_WET_MOVIE_H
