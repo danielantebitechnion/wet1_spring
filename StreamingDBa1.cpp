@@ -1,5 +1,5 @@
 #include "StreamingDBa1.h"
-
+#include <iostream>
 
 
 streaming_database::streaming_database() : m_allUsers(), m_allGroups(), m_allMovies(),
@@ -20,15 +20,14 @@ StatusType streaming_database::add_movie(int movieId, Genre genre, int views, bo
 	    return StatusType::INVALID_INPUT;
     }
     try {
-        Movie newMovie (movieId, genre, views, vipOnly);
+        Movie newMovie = Movie(movieId, genre, views, vipOnly);
         m_allMovies.insert(movieId, newMovie);
         GenreTree newGenreTree = GenreTree(0.0, views, movieId);
         m_treeArrayByGenre[static_cast<int>(genre)].insert(newGenreTree, &newMovie);
-    } catch(std::bad_alloc &e)
-    {
+    } catch(std::bad_alloc &e){
         return StatusType::ALLOCATION_ERROR;
-    }catch(KeyAlreadyInTree& e)
-    {
+    }catch(KeyAlreadyInTree& e){
+        std::cout << "hello";
         return StatusType::FAILURE;
     }
 	return StatusType::SUCCESS;

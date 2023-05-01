@@ -1,7 +1,9 @@
 #ifndef DS_1_WET_USER_H
 #define DS_1_WET_USER_H
 static const int GENRE_AMOUNT = 4;
-#include "StreamingDBa1.h"
+#include "wet1util.h"
+#include <iostream>
+
 
 class User {
 private:

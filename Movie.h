@@ -1,7 +1,5 @@
 #ifndef DS_1_WET_MOVIE_H
 #define DS_1_WET_MOVIE_H
-
-
 #include "wet1util.h"
 
 class Movie {
@@ -23,6 +21,7 @@ public:
     bool isVipOnly() const;
     void increaseViews();
     void updateRating(int rating);
+    void printMovie() const;
 };
 
 #endif //DS_1_WET_MOVIE_H

@@ -16,7 +16,6 @@
 #define STREAMINGDBA1_H_
 
 #include "wet1util.h"
-#include "Tree.h"
 #include "Group.h"
 #include "Movie.h"
 #include "GenreTree.h"
@@ -30,6 +29,11 @@ private:
     Tree<int, Group*> m_usersInGroups;
 
 public:
+    Tree<int, Movie> returnAllMovies()
+    {
+        return m_allMovies;
+    }
+
 	// <DO-NOT-MODIFY> {
 	
 	streaming_database();
