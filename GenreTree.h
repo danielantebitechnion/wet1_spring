@@ -6,24 +6,25 @@
 
 class GenreTree {
 private:
-    int movieRank;
-    int movieViews;
-    int movieId;
+    double m_movieRating;
+    int m_movieViews;
+    int m_movieId;
 
 public:
-    GenreTree(int rank, int views, int id): movieRank(rank),movieViews(views),movieId(id) {}
+    GenreTree(double rating, int views, int id): m_movieRating(rating), m_movieViews(views), m_movieId(id) {}
 
     bool operator>(const GenreTree &rhs) const {
-        if (movieRank > rhs.movieRank)
+        if (m_movieRating > rhs.m_movieRating)
             return true;
-        if (movieViews > rhs.movieViews)
+        if (m_movieViews > rhs.m_movieViews)
             return true;
-        return movieId < rhs.movieId;
+        return m_movieId < rhs.m_movieId;
     }
 
     bool operator<(const GenreTree &rhs) const {
         return rhs > *this;
     }
+
 };
 
 #endif //

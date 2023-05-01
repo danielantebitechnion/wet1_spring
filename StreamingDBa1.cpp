@@ -15,26 +15,84 @@ streaming_database::~streaming_database()
 
 StatusType streaming_database::add_movie(int movieId, Genre genre, int views, bool vipOnly)
 {
-	if(movieId < 0 || )
+	if(movieId <= 0 || genre == Genre::NONE || views < 0)
+    {
+	    return StatusType::INVALID_INPUT;
+    }
+    try {
+        Movie newMovie (movieId, genre, views, vipOnly);
+        m_allMovies.insert(movieId, newMovie);
+        GenreTree newGenreTree = GenreTree(0.0, views, movieId);
+        m_treeArrayByGenre[static_cast<int>(genre)].insert(newGenreTree, &newMovie);
+    } catch(std::bad_alloc &e)
+    {
+        return StatusType::ALLOCATION_ERROR;
+    }catch(KeyAlreadyInTree& e)
+    {
+        return StatusType::FAILURE;
+    }
 	return StatusType::SUCCESS;
 }
 
 StatusType streaming_database::remove_movie(int movieId)
 {
-	// TODO: Your code goes here
+	if(movieId <= 0)
+    {
+	    return StatusType::INVALID_INPUT;
+    }
+	try{
+        Movie* toDelete = m_allMovies.find_by_index(movieId);
+        if(toDelete == nullptr)
+        {
+            return StatusType::FAILURE;
+        }
+        m_allMovies.remove(movieId);
+        GenreTree newGenreTree = GenreTree(toDelete->getAverageRating(), toDelete->getViews(), movieId);
+        m_treeArrayByGenre[static_cast<int>(toDelete->getGenre())].remove(newGenreTree);
+        m_treeArrayByGenre[static_cast<int>(Genre::NONE)].remove(newGenreTree);
+    }catch(std::bad_alloc &e){return StatusType::ALLOCATION_ERROR;}
 	return StatusType::SUCCESS;
 }
 
 StatusType streaming_database::add_user(int userId, bool isVip)
 {
-	// TODO: Your code goes here
-	return StatusType::SUCCESS;
+    if (userId<= 0){
+        return StatusType::INVALID_INPUT;
+    }
+    try{
+        User user(userId,isVip);
+        m_allUsers.insert(userId,user);
+    }catch (KeyAlreadyInTree &e){
+        return StatusType::FAILURE;
+    }
+    catch (std::bad_alloc &e){
+        return StatusType::ALLOCATION_ERROR;
+    }
+    return StatusType::SUCCESS;
 }
 
 StatusType streaming_database::remove_user(int userId)
 {
-	// TODO: Your code goes here
-	return StatusType::SUCCESS;
+    if (userId <= 0){
+        return StatusType::INVALID_INPUT;
+    }
+    try{
+        User* u = m_allUsers.find_by_index(userId);
+        if (u == nullptr){
+            return StatusType::FAILURE;
+        }
+        Group *g = *m_usersInGroups.find_by_index(userId);
+        if (g != nullptr){ // user has a group
+            g->removeUserFromGroup(*u);
+            m_usersInGroups.remove(userId); //remove user from users_group tree
+        }
+        else{ // user exists and isn't part from group
+            m_allUsers.remove(userId);
+        }
+    }catch (std::bad_alloc &e){
+        return StatusType::ALLOCATION_ERROR;
+    }
+    return StatusType::SUCCESS;
 }
 
 StatusType streaming_database::add_group(int groupId)
