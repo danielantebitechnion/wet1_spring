@@ -14,6 +14,7 @@ public:
     User() = default;
     User(int id, bool isVip);
     ~User() = default;
+    User(const User& other) = default;
 };
 
 
