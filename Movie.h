@@ -4,7 +4,7 @@
 #include "wet1util.h"
 
 class Movie {
-    public:
+    private:
       int movieId;
       Genre genre;
       double rating; // avarage rating of the movie
