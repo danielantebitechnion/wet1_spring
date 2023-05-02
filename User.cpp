@@ -1,7 +1,8 @@
 #include "User.h"
 
 User::User(int id, bool isVip)  : m_id(id), m_isVip(isVip), m_viewsByGenre(new int [GENRE_AMOUNT]),
-                                  m_viewOfGroupBeforeJoining(new int[GENRE_AMOUNT]){}
+                                  m_viewOfGroupBeforeJoining(new int[GENRE_AMOUNT]), m_currentGroup(nullptr),
+                                  m_rootOfUserGroup(0, nullptr){}
 
 int User::getId() const {
     return m_id;
@@ -15,6 +16,14 @@ int User::getViewsByGenre(Genre genre) const {
     return m_viewsByGenre[static_cast<int>(genre)];
 }
 
+Group* User::getUserGroup() const{
+    return m_currentGroup;
+}
+
+AVL_node<int, User*> User::getRootOfUserGroup() const {
+    return m_rootOfUserGroup;
+}
+
 void User::setViewsByGenre(Genre genre,int views) {
     m_viewsByGenre[static_cast<int>(genre)] = views;
 }
@@ -25,6 +34,14 @@ int User::getViewOfGroupBeforeJoining(Genre genre) const {
 
 void User::setViewOfGroupBeforeJoining(Genre genre, int views) {
     m_viewOfGroupBeforeJoining[static_cast<int>(genre)] = views;
+}
+
+void User::setUserGroup(Group* const& group){
+    m_currentGroup = group;
+}
+
+void User::setRootOfUserGroup(AVL_node<int, User*> const &user) {
+    m_rootOfUserGroup = user;
 }
 
 void User::print() const {

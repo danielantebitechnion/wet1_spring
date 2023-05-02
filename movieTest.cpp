@@ -19,6 +19,7 @@ int main() {
     Movie *HarryPotter8 = new Movie(12311, Genre::COMEDY, 12, true);*/
     //sd.remove_movie(1);
     sd.add_movie(1, Genre::COMEDY, 0, true);
+    sd.add_movie(1, Genre::COMEDY, 0, true);
     sd.returnAllMovies().print();
     sd.add_movie(2,Genre::NONE, 10, false);
     sd.add_movie(5,Genre::COMEDY,5, false);

@@ -16,24 +16,20 @@
 #define STREAMINGDBA1_H_
 
 #include "wet1util.h"
+#include "User.h"
 #include "Group.h"
 #include "Movie.h"
 #include "GenreTree.h"
 
 class streaming_database {
 private:
-    Tree<int, User> m_allUsers;
-    Tree<int, Group> m_allGroups;
-    Tree<int, Movie> m_allMovies;
-    Tree<GenreTree, Movie*>* m_treeArrayByGenre;
-    Tree<int, Group*> m_usersInGroups;
+    Tree<int, User> m_allUsers; //Tree of all users in DB
+    Tree<int, Group> m_allGroups; //Tree of all groups in DB
+    Tree<int, Movie> m_allMovies; //Tree of all movies in DB
+    Tree<GenreTree, Movie*>* m_treeArrayByGenre; //Array of trees by genre
+    Tree<int, Tree<int, User*>> m_usersByGroup; //Tree of Trees of groups and their users within the group
 
 public:
-    Tree<int, Movie> returnAllMovies()
-    {
-        return m_allMovies;
-    }
-
 	// <DO-NOT-MODIFY> {
 	
 	streaming_database();
