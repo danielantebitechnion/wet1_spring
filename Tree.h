@@ -21,7 +21,6 @@ public:
     int getSize() const;
     Data* operator[](const Key& key);
     Data* find_by_index(int index);
-    void inOrderTraverse(AVL_node<Key, Data>* node);
 
     // for tests:
     bool validCheck();

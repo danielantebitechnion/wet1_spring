@@ -393,19 +393,5 @@ int AVL_node<Key, Data>::getSize() const {
     return size;
 }
 
-
-template<class Key, class Data>
-void AVL_node<Key, Data>::inOrderTraverse(AVL_node<Key, Data>) {
-    std::cout << prefix;
-    std::cout << (isLeft ? "L--" : "R--");
-    // print the value of the node
-    std::cout << this->key << std::endl;
-    // enter the next tree level - left and right branch
-    if (this->left != nullptr)
-        this->left->print(prefix + (isLeft ? "L   " : "    "), true);
-    if (this->right != nullptr)
-        this->right->print(prefix + (isLeft ? "L   " : "    "), false);
-}
-
 #endif //DS_WET1_AVL_node_H
 #endif //DS_1_WET_AVL_NODE_H

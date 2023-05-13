@@ -26,11 +26,11 @@ public:
     bool isVip() const; // Getter for m_isVip
     int getViewsByGenre(Genre genre) const; // Getter for m_viewsByGenre
     Group* getUserGroup() const;
-    void setViewsByGenre(Genre genre, int views); // Setter for m_viewsByGenre
+    void addViewsByGenre(Genre genre, int views); // Setter for m_viewsByGenre
     int getViewOfGroupBeforeJoining(Genre genre) const; // Getter for group views in genere before joining
     AVL_node<int, User*> getRootOfUserGroup() const;
     void setViewOfGroupBeforeJoining(Genre genre, int views); // Setter for views of group before joining
-    void setUserGroup(Group* const& group);
+    void setUserGroup(Group* group);
     void setRootOfUserGroup(AVL_node<int, User*> const &user) ;
     void print() const;
 };

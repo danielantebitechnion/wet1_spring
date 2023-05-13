@@ -31,7 +31,31 @@ private:
 
 public:
 	// <DO-NOT-MODIFY> {
-	
+
+    Tree<int, User> getUsersTree()
+    {
+	    return m_allUsers;
+    }
+
+    Tree<int, Group> getGroupTree()
+    {
+	    return m_allGroups;
+    }
+
+    Tree<int, Movie> getAllMovies(){
+	    return m_allMovies;
+	}
+
+    Tree<GenreTree, Movie*>* getGenreTree(Genre g)
+    {
+	    return &m_treeArrayByGenre[static_cast<int>(g)];
+    }
+
+    Tree<int, User*> getUserGroupTree(int group)
+    {
+	    return *m_usersByGroup.find_by_index(group);
+    }
+
 	streaming_database();
 
 	virtual ~streaming_database();

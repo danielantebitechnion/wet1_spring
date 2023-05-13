@@ -24,7 +24,7 @@ AVL_node<int, User*> User::getRootOfUserGroup() const {
     return m_rootOfUserGroup;
 }
 
-void User::setViewsByGenre(Genre genre,int views) {
+void User::addViewsByGenre(Genre genre,int views) {
     m_viewsByGenre[static_cast<int>(genre)] = views;
 }
 
@@ -36,7 +36,7 @@ void User::setViewOfGroupBeforeJoining(Genre genre, int views) {
     m_viewOfGroupBeforeJoining[static_cast<int>(genre)] = views;
 }
 
-void User::setUserGroup(Group* const& group){
+void User::setUserGroup(Group* group){
     m_currentGroup = group;
 }
 
