@@ -53,7 +53,7 @@ public:
 
     Tree<int, User*> getUserGroupTree(int group)
     {
-	    return *m_usersByGroup.find_by_index(group);
+	    return *m_usersByGroup[group];
     }
 
 	streaming_database();

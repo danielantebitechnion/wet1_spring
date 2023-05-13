@@ -5,21 +5,23 @@
 int main() {
     streaming_database sd;
     //movie add
-    sd.add_movie(1, Genre::COMEDY, 5, true);
+    Movie newMovie = Movie(10, Genre::COMEDY, 0, true);
+    newMovie.printMovie();
+    std::cout << "__________" << std::endl;
+    sd.add_movie(newMovie.getMovieId(), newMovie.getGenre(), newMovie.getViews(), newMovie.isVipOnly());
     sd.getAllMovies().print();
-    std::cout << sd.getAllMovies().find_by_index(1)->getViews();
-    sd.getAllMovies().find_by_index(1)->printMovie();
+    sd.getAllMovies()[10]->printMovie();
 
     //user add
     sd.add_user(2, false);
     sd.getUsersTree().print();
-    sd.getUsersTree().find_by_index(2)->print();
+    sd.getUsersTree()[2]->print();
 
 
     //group add
     sd.add_group(3);
     sd.getGroupTree().print();
-    sd.getGroupTree().find_by_index(3)->print();
+    sd.getGroupTree()[3]->print();
 
     //add user to group
     sd.add_user_to_group(2, 3);

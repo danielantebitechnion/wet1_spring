@@ -338,7 +338,7 @@ Data* AVL_node<Key, Data>::operator[](const Key& key) {
 
 
 template<class Key, class Data>
-Data *AVL_node<Key, Data>::find_by_index(int index) {
+Data* AVL_node<Key, Data>::find_by_index(int index) {
     int current_index = this->left == nullptr ? 0 : this->left->size;
     AVL_node<Key, Data>* current = this;
     while (current != nullptr && current_index != index) {

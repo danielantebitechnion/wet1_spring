@@ -109,7 +109,7 @@ Data* Tree<Key, Data>::operator[](const Key &key) {
 }
 
 template<class Key, class Data>
-Data *Tree<Key, Data>::find_by_index(int index) {
+Data* Tree<Key, Data>::find_by_index(int index) {
     if(root == nullptr){
         return nullptr;
     }

@@ -35,7 +35,7 @@ StatusType streaming_database::remove_movie(int movieId) {
         return StatusType::INVALID_INPUT;
     }
     try {
-        Movie *toDelete = m_allMovies.find_by_index(movieId);
+        Movie *toDelete = m_allMovies[movieId];
         m_allMovies.remove(movieId);
         GenreTree newGenreTree = GenreTree(toDelete->getAverageRating(), toDelete->getViews(), movieId);
         m_treeArrayByGenre[static_cast<int>(toDelete->getGenre())].remove(newGenreTree);
@@ -68,7 +68,7 @@ StatusType streaming_database::remove_user(int userId) {
         return StatusType::INVALID_INPUT;
     }
     try {
-        User *u = m_allUsers.find_by_index(userId);
+        User *u = m_allUsers[userId];
         Group *g = u->getUserGroup();
         if (g != nullptr) { // user has a group
             if (u->isVip()) {
@@ -113,13 +113,13 @@ StatusType streaming_database::remove_group(int groupId) {
         return StatusType::INVALID_INPUT;
     }
     try {
-        Group *g = m_allGroups.find_by_index(groupId);
+        Group *g = m_allGroups[groupId];
         int tempGroupViews[4];
         for (int i = 0; i < GENRE_AMOUNT; ++i) {
             tempGroupViews[i] = g->getViewsAsGroupByGenre(static_cast<Genre>(i));
         }
         m_allGroups.remove(groupId);
-        Tree<int, User *> *userTreeInGroup = m_usersByGroup.find_by_index(groupId);
+        Tree<int, User *> *userTreeInGroup = m_usersByGroup[groupId];
 
         //TO-DO see Daniel's recent notes
     } catch (std::bad_alloc &e) {
@@ -135,15 +135,15 @@ StatusType streaming_database::add_user_to_group(int userId, int groupId) {
         return StatusType::INVALID_INPUT;
     }
     try {
-        User *u = m_allUsers.find_by_index(userId);
-        Group *g = m_allGroups.find_by_index(groupId);
+        User *u = m_allUsers[userId];
+        Group *g = m_allGroups[groupId];
         std::cout << "hi" << std::endl;
         if (u->getUserGroup() != nullptr) {
             std::cout << "hi2" << std::endl;
             return StatusType::FAILURE;
         }
         u->setUserGroup(g);
-        m_usersByGroup.find_by_index(groupId)->insert(userId, u);
+        m_usersByGroup[groupId]->insert(userId, u);
         int currGenreViewsUser = 0;
         int groupViewBeforeJoiningGenre = 0;
         for (int i = 0; i < GENRE_AMOUNT; ++i) {
@@ -168,8 +168,8 @@ StatusType streaming_database::user_watch(int userId, int movieId) {
         return StatusType::INVALID_INPUT;
     }
     try {
-        User *u = m_allUsers.find_by_index(userId);
-        Movie *movie = m_allMovies.find_by_index(movieId);
+        User *u = m_allUsers[userId];
+        Movie *movie = m_allMovies[movieId];
         if (u->isVip() == false && movie->isVipOnly()) {
             return StatusType::FAILURE;
         }
@@ -228,12 +228,12 @@ StatusType streaming_database::rate_movie(int userId, int movieId, int rating) {
         return StatusType::INVALID_INPUT;
     }
     try {
-        User *u = m_allUsers.find_by_index(userId);
-        Movie *movie = m_allMovies.find_by_index(movieId);
+        User *u = m_allUsers[userId];
+        Movie *movie = m_allMovies[movieId];
         if (u->isVip() == false && movie->isVipOnly()) {
             return StatusType::FAILURE;
         }
-        m_allMovies.find_by_index(movieId)->updateRating(rating);
+        m_allMovies[movieId]->updateRating(rating);
         Movie *newMovie = new Movie(movieId, movie->getGenre(), movie->getViews(), movie->isVipOnly());
         remove_movie(movieId);
         add_movie(movieId, newMovie->getGenre(), newMovie->getViews(), newMovie->isVipOnly());
