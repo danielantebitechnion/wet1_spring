@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g -Wl,--enable-auto-import CMakeFiles/DS_1_WET.dir/main.cpp.o -o DS_1_WET.exe -Wl,--out-implib,libDS_1_WET.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

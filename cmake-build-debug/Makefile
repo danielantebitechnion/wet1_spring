@@ -67,10 +67,10 @@ RM = /cygdrive/c/Users/97252/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bi
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET"
+CMAKE_SOURCE_DIR = /cygdrive/c/Users/97252/Desktop/DS_1_WET
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet"
+CMAKE_BINARY_DIR = /cygdrive/c/Users/97252/Desktop/DS_1_WET/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,9 +99,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/CMakeFiles" "/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet//CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/c/Users/97252/Desktop/DS_1_WET/cmake-build-debug/CMakeFiles /cygdrive/c/Users/97252/Desktop/DS_1_WET/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/c/Users/97252/Desktop/DS_1_WET/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -142,140 +142,32 @@ DS_1_WET/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DS_1_WET.dir/build.make CMakeFiles/DS_1_WET.dir/build
 .PHONY : DS_1_WET/fast
 
-Group.o: Group.cpp.o
+main.o: main.cpp.o
 
-.PHONY : Group.o
-
-# target to build an object file
-Group.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DS_1_WET.dir/build.make CMakeFiles/DS_1_WET.dir/Group.cpp.o
-.PHONY : Group.cpp.o
-
-Group.i: Group.cpp.i
-
-.PHONY : Group.i
-
-# target to preprocess a source file
-Group.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DS_1_WET.dir/build.make CMakeFiles/DS_1_WET.dir/Group.cpp.i
-.PHONY : Group.cpp.i
-
-Group.s: Group.cpp.s
-
-.PHONY : Group.s
-
-# target to generate assembly for a file
-Group.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DS_1_WET.dir/build.make CMakeFiles/DS_1_WET.dir/Group.cpp.s
-.PHONY : Group.cpp.s
-
-Movie.o: Movie.cpp.o
-
-.PHONY : Movie.o
+.PHONY : main.o
 
 # target to build an object file
-Movie.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DS_1_WET.dir/build.make CMakeFiles/DS_1_WET.dir/Movie.cpp.o
-.PHONY : Movie.cpp.o
+main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DS_1_WET.dir/build.make CMakeFiles/DS_1_WET.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-Movie.i: Movie.cpp.i
+main.i: main.cpp.i
 
-.PHONY : Movie.i
-
-# target to preprocess a source file
-Movie.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DS_1_WET.dir/build.make CMakeFiles/DS_1_WET.dir/Movie.cpp.i
-.PHONY : Movie.cpp.i
-
-Movie.s: Movie.cpp.s
-
-.PHONY : Movie.s
-
-# target to generate assembly for a file
-Movie.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DS_1_WET.dir/build.make CMakeFiles/DS_1_WET.dir/Movie.cpp.s
-.PHONY : Movie.cpp.s
-
-StreamingDBa1.o: StreamingDBa1.cpp.o
-
-.PHONY : StreamingDBa1.o
-
-# target to build an object file
-StreamingDBa1.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DS_1_WET.dir/build.make CMakeFiles/DS_1_WET.dir/StreamingDBa1.cpp.o
-.PHONY : StreamingDBa1.cpp.o
-
-StreamingDBa1.i: StreamingDBa1.cpp.i
-
-.PHONY : StreamingDBa1.i
+.PHONY : main.i
 
 # target to preprocess a source file
-StreamingDBa1.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DS_1_WET.dir/build.make CMakeFiles/DS_1_WET.dir/StreamingDBa1.cpp.i
-.PHONY : StreamingDBa1.cpp.i
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DS_1_WET.dir/build.make CMakeFiles/DS_1_WET.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-StreamingDBa1.s: StreamingDBa1.cpp.s
+main.s: main.cpp.s
 
-.PHONY : StreamingDBa1.s
-
-# target to generate assembly for a file
-StreamingDBa1.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DS_1_WET.dir/build.make CMakeFiles/DS_1_WET.dir/StreamingDBa1.cpp.s
-.PHONY : StreamingDBa1.cpp.s
-
-User.o: User.cpp.o
-
-.PHONY : User.o
-
-# target to build an object file
-User.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DS_1_WET.dir/build.make CMakeFiles/DS_1_WET.dir/User.cpp.o
-.PHONY : User.cpp.o
-
-User.i: User.cpp.i
-
-.PHONY : User.i
-
-# target to preprocess a source file
-User.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DS_1_WET.dir/build.make CMakeFiles/DS_1_WET.dir/User.cpp.i
-.PHONY : User.cpp.i
-
-User.s: User.cpp.s
-
-.PHONY : User.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-User.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DS_1_WET.dir/build.make CMakeFiles/DS_1_WET.dir/User.cpp.s
-.PHONY : User.cpp.s
-
-movieTest.o: movieTest.cpp.o
-
-.PHONY : movieTest.o
-
-# target to build an object file
-movieTest.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DS_1_WET.dir/build.make CMakeFiles/DS_1_WET.dir/movieTest.cpp.o
-.PHONY : movieTest.cpp.o
-
-movieTest.i: movieTest.cpp.i
-
-.PHONY : movieTest.i
-
-# target to preprocess a source file
-movieTest.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DS_1_WET.dir/build.make CMakeFiles/DS_1_WET.dir/movieTest.cpp.i
-.PHONY : movieTest.cpp.i
-
-movieTest.s: movieTest.cpp.s
-
-.PHONY : movieTest.s
-
-# target to generate assembly for a file
-movieTest.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DS_1_WET.dir/build.make CMakeFiles/DS_1_WET.dir/movieTest.cpp.s
-.PHONY : movieTest.cpp.s
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DS_1_WET.dir/build.make CMakeFiles/DS_1_WET.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -286,21 +178,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... DS_1_WET"
-	@echo "... Group.o"
-	@echo "... Group.i"
-	@echo "... Group.s"
-	@echo "... Movie.o"
-	@echo "... Movie.i"
-	@echo "... Movie.s"
-	@echo "... StreamingDBa1.o"
-	@echo "... StreamingDBa1.i"
-	@echo "... StreamingDBa1.s"
-	@echo "... User.o"
-	@echo "... User.i"
-	@echo "... User.s"
-	@echo "... movieTest.o"
-	@echo "... movieTest.i"
-	@echo "... movieTest.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 

@@ -108,13 +108,29 @@ StatusType streaming_database::add_group(int groupId) {
     return StatusType::SUCCESS;
 }
 
+static void inOrderUpdateUserData(AVL_node<int, User*>* node)
+{
+    if(node != nullptr)
+    {
+        inOrderUpdateUserData(node->getLeft());
+        node->getData()
+    }
+
+}
+
     StatusType streaming_database::remove_group(int groupId) {
         if (groupId <= 0) {
             return StatusType::INVALID_INPUT;
         }
         try{
             Group* g = m_allGroups.find_by_index(groupId);
-            m_usersByGroup.find_by_index(groupId)
+            int tempGroupViews[4];
+            for (int i = 0; i < GENRE_AMOUNT; ++i) {
+                tempGroupViews[i] = g->getViewsAsGroupByGenre(static_cast<Genre>(i));
+            }
+            m_allGroups.remove(groupId);
+            Tree<int, User*>* userTreeInGroup = m_usersByGroup.find_by_index(groupId);
+
             //TO-DO see Daniel's recent notes
         } catch (std::bad_alloc &e) {
             return StatusType::ALLOCATION_ERROR;
@@ -125,7 +141,7 @@ StatusType streaming_database::add_group(int groupId) {
     }
 
     StatusType streaming_database::add_user_to_group(int userId, int groupId) {
-        // TODO: Your code goes here
+        if(userId <= 0  || groupId <= 0)
         return StatusType::SUCCESS;
     }
 

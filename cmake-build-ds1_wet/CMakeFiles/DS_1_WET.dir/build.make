@@ -76,18 +76,18 @@ include CMakeFiles/DS_1_WET.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/DS_1_WET.dir/flags.make
 
-CMakeFiles/DS_1_WET.dir/maina1.cpp.o: CMakeFiles/DS_1_WET.dir/flags.make
-CMakeFiles/DS_1_WET.dir/maina1.cpp.o: ../maina1.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/DS_1_WET.dir/maina1.cpp.o"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DS_1_WET.dir/maina1.cpp.o -c "/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/maina1.cpp"
+CMakeFiles/DS_1_WET.dir/movieTest.cpp.o: CMakeFiles/DS_1_WET.dir/flags.make
+CMakeFiles/DS_1_WET.dir/movieTest.cpp.o: ../movieTest.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/DS_1_WET.dir/movieTest.cpp.o"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DS_1_WET.dir/movieTest.cpp.o -c "/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/movieTest.cpp"
 
-CMakeFiles/DS_1_WET.dir/maina1.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DS_1_WET.dir/maina1.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/maina1.cpp" > CMakeFiles/DS_1_WET.dir/maina1.cpp.i
+CMakeFiles/DS_1_WET.dir/movieTest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DS_1_WET.dir/movieTest.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/movieTest.cpp" > CMakeFiles/DS_1_WET.dir/movieTest.cpp.i
 
-CMakeFiles/DS_1_WET.dir/maina1.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DS_1_WET.dir/maina1.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/maina1.cpp" -o CMakeFiles/DS_1_WET.dir/maina1.cpp.s
+CMakeFiles/DS_1_WET.dir/movieTest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DS_1_WET.dir/movieTest.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/movieTest.cpp" -o CMakeFiles/DS_1_WET.dir/movieTest.cpp.s
 
 CMakeFiles/DS_1_WET.dir/StreamingDBa1.cpp.o: CMakeFiles/DS_1_WET.dir/flags.make
 CMakeFiles/DS_1_WET.dir/StreamingDBa1.cpp.o: ../StreamingDBa1.cpp
@@ -115,21 +115,51 @@ CMakeFiles/DS_1_WET.dir/User.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DS_1_WET.dir/User.cpp.s"
 	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/User.cpp" -o CMakeFiles/DS_1_WET.dir/User.cpp.s
 
+CMakeFiles/DS_1_WET.dir/Group.cpp.o: CMakeFiles/DS_1_WET.dir/flags.make
+CMakeFiles/DS_1_WET.dir/Group.cpp.o: ../Group.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/DS_1_WET.dir/Group.cpp.o"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DS_1_WET.dir/Group.cpp.o -c "/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/Group.cpp"
+
+CMakeFiles/DS_1_WET.dir/Group.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DS_1_WET.dir/Group.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/Group.cpp" > CMakeFiles/DS_1_WET.dir/Group.cpp.i
+
+CMakeFiles/DS_1_WET.dir/Group.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DS_1_WET.dir/Group.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/Group.cpp" -o CMakeFiles/DS_1_WET.dir/Group.cpp.s
+
+CMakeFiles/DS_1_WET.dir/Movie.cpp.o: CMakeFiles/DS_1_WET.dir/flags.make
+CMakeFiles/DS_1_WET.dir/Movie.cpp.o: ../Movie.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/DS_1_WET.dir/Movie.cpp.o"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DS_1_WET.dir/Movie.cpp.o -c "/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/Movie.cpp"
+
+CMakeFiles/DS_1_WET.dir/Movie.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DS_1_WET.dir/Movie.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/Movie.cpp" > CMakeFiles/DS_1_WET.dir/Movie.cpp.i
+
+CMakeFiles/DS_1_WET.dir/Movie.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DS_1_WET.dir/Movie.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/Movie.cpp" -o CMakeFiles/DS_1_WET.dir/Movie.cpp.s
+
 # Object files for target DS_1_WET
 DS_1_WET_OBJECTS = \
-"CMakeFiles/DS_1_WET.dir/maina1.cpp.o" \
+"CMakeFiles/DS_1_WET.dir/movieTest.cpp.o" \
 "CMakeFiles/DS_1_WET.dir/StreamingDBa1.cpp.o" \
-"CMakeFiles/DS_1_WET.dir/User.cpp.o"
+"CMakeFiles/DS_1_WET.dir/User.cpp.o" \
+"CMakeFiles/DS_1_WET.dir/Group.cpp.o" \
+"CMakeFiles/DS_1_WET.dir/Movie.cpp.o"
 
 # External object files for target DS_1_WET
 DS_1_WET_EXTERNAL_OBJECTS =
 
-DS_1_WET.exe: CMakeFiles/DS_1_WET.dir/maina1.cpp.o
+DS_1_WET.exe: CMakeFiles/DS_1_WET.dir/movieTest.cpp.o
 DS_1_WET.exe: CMakeFiles/DS_1_WET.dir/StreamingDBa1.cpp.o
 DS_1_WET.exe: CMakeFiles/DS_1_WET.dir/User.cpp.o
+DS_1_WET.exe: CMakeFiles/DS_1_WET.dir/Group.cpp.o
+DS_1_WET.exe: CMakeFiles/DS_1_WET.dir/Movie.cpp.o
 DS_1_WET.exe: CMakeFiles/DS_1_WET.dir/build.make
 DS_1_WET.exe: CMakeFiles/DS_1_WET.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable DS_1_WET.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable DS_1_WET.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/DS_1_WET.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

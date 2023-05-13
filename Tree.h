@@ -21,6 +21,7 @@ public:
     int getSize() const;
     Data* operator[](const Key& key);
     Data* find_by_index(int index);
+    void inOrderTraverse(AVL_node<Key, Data>* node);
 
     // for tests:
     bool validCheck();
@@ -120,5 +121,6 @@ template<class Key, class Data>
 Tree<Key, Data>::~Tree() {
     delete root;
 }
+
 
 #endif //DS_1_WET_TREE_H
