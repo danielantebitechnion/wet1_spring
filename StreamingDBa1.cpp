@@ -172,6 +172,7 @@ StatusType streaming_database::user_watch(int userId, int movieId) {
             return StatusType::FAILURE;
         }
         u->addViewsByGenre(movie->getGenre(), 1);
+        u->getUserGroup()->addTotalGroupMembersViewsByGenre(movie->getGenre(), 1);
         Movie *newMovie = new Movie(movieId, movie->getGenre(), movie->getViews() + 1, movie->isVipOnly());
         remove_movie(movieId);
         add_movie(movieId, newMovie->getGenre(), newMovie->getViews(), newMovie->isVipOnly());
@@ -231,10 +232,12 @@ StatusType streaming_database::rate_movie(int userId, int movieId, int rating) {
         if (u->isVip() == false && movie->isVipOnly()) {
             return StatusType::FAILURE;
         }
+        GenreTree newGenreTree = GenreTree(movie->getAverageRating(), movie->getViews(), movieId);
+        m_treeArrayByGenre[static_cast<int>(movie->getGenre())].remove(newGenreTree);
+        m_treeArrayByGenre[GENRE_AMOUNT].remove(newGenreTree);
         m_allMovies[movieId]->updateRating(rating);
-        Movie *newMovie = new Movie(movieId, movie->getGenre(), movie->getViews(), movie->isVipOnly());
-        remove_movie(movieId);
-        add_movie(movieId, newMovie->getGenre(), newMovie->getViews(), newMovie->isVipOnly());
+        m_treeArrayByGenre[static_cast<int>(movie->getGenre())].insert(newGenreTree, movieId);
+        m_treeArrayByGenre[static_cast<int>(Genre::NONE)].insert(newGenreTree, movieId);
     } catch (KeyNotInTree &e) {
         return StatusType::FAILURE;
     } catch (std::bad_alloc &e) {

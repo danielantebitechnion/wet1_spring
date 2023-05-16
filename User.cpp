@@ -1,8 +1,13 @@
 #include "User.h"
 
-User::User(int id, bool isVip)  : m_id(id), m_isVip(isVip), m_viewsByGenre(new int [GENRE_AMOUNT]),
-                                  m_viewOfGroupBeforeJoining(new int[GENRE_AMOUNT]), m_currentGroup(nullptr),
-                                  m_rootOfUserGroup(0, nullptr){}
+User::User(int id, bool isVip)  : m_id(id), m_isVip(isVip), m_currentGroup(nullptr),
+                                  m_rootOfUserGroup(0, nullptr){
+    for(int i = 0; i < GENRE_AMOUNT; i++)
+    {
+        m_viewsByGenre[i] = 0;
+        m_viewOfGroupBeforeJoining[i] = 0;
+    }
+}
 
 int User::getId() const {
     return m_id;

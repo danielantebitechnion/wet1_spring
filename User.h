@@ -13,8 +13,8 @@ class User {
 private:
     int m_id;
     bool m_isVip;
-    int* m_viewsByGenre;
-    int* m_viewOfGroupBeforeJoining;
+    int m_viewsByGenre[GENRE_AMOUNT];
+    int m_viewOfGroupBeforeJoining[GENRE_AMOUNT];
     Group* m_currentGroup;
     AVL_node<int, User*> m_rootOfUserGroup;
 public:

@@ -28,11 +28,13 @@ int main() {
     sd->add_group(1);
     sd->add_group(2);
     sd->add_group(3);
-    if(sd->add_group(1) != StatusType::SUCCESS)
-    {
-        std::cout << "success" << std::endl;
-    }
     sd->add_user_to_group(1,1);
-    sd->remove_group(1);
+    sd->add_user_to_group(2,1);
+    sd->user_watch(1, 1);
+    if(sd->add_user_to_group(2,1) != StatusType::SUCCESS)
+    {
+        std::cout << "2 couldnt watch vip movie" << std::endl;
+    }
+    sd->rate_movie(1, 1, 50);
     sd->getGroupTree().print();
 }
