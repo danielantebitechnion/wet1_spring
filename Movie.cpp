@@ -14,6 +14,10 @@ Genre Movie::getGenre() const {
 }
 
 double Movie::getAverageRating() const {
+    if(m_raterCount == 0)
+    {
+        return 0;
+    }
     return (m_totalRating/m_raterCount);
 }
 

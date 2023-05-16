@@ -1,47 +1,38 @@
 #include "Movie.h"
 #include "StreamingDBa1.h"
-#include <iostream>
+
 
 int main() {
-    streaming_database sd;
-    //movie add
-    Movie newMovie = Movie(10, Genre::COMEDY, 0, true);
-    newMovie.printMovie();
-    std::cout << "__________" << std::endl;
-    sd.add_movie(newMovie.getMovieId(), newMovie.getGenre(), newMovie.getViews(), newMovie.isVipOnly());
-    sd.getAllMovies().print();
-    sd.getAllMovies()[10]->printMovie();
 
-    //user add
-    sd.add_user(2, false);
-    sd.getUsersTree().print();
-    sd.getUsersTree()[2]->print();
+    /*------------------------CREATING USERS-------------------------*/
+    streaming_database *sd = new streaming_database();
+    sd->add_user(1, true);
+    sd->add_user(2, false);
 
-
-    //group add
-    sd.add_group(3);
-    sd.getGroupTree().print();
-    sd.getGroupTree()[3]->print();
-
-    //add user to group
-    sd.add_user_to_group(2, 3);
-    sd.getUserGroupTree(3).print();
-
-    //watch and rate
-    sd.user_watch(2, 1);
-    int views = sd.getAllMovies().find_by_index(1)->getViews();
-    std::cout << "View count should be 1, it is:" <<views << std::endl;
-
-    sd.rate_movie(2, 3, 50);
-    double rating = sd.getAllMovies().find_by_index(1)->getAverageRating();
-    std::cout << "avg rating should be 50, it is:" << rating << std::endl;
-
-    //get count
-    int count = sd.getAllMovies().getSize();
-    std::cout << "Movies count should be 1, it is: " <<count << std::endl;
-
-    //removing everything from the system
-    sd.remove_group(3);
-    sd.remove_user(2);
-    sd.remove_movie(1);
+    std::cout << "--------------MOVIE TESTING------------" << std::endl;
+    sd->add_movie(1, Genre::COMEDY, 4, true);
+    sd->add_movie(10, Genre::COMEDY, 40, true);
+    sd->add_movie(100, Genre::COMEDY, 400, true);
+    sd->add_movie(2,Genre::DRAMA,5, true);
+    sd->add_movie(20,Genre::DRAMA,50, true);
+    sd->add_movie(200,Genre::DRAMA,500, true);
+    sd->remove_movie(1);
+    sd->add_movie(3,Genre::FANTASY,0, true);
+    sd->remove_movie(2);
+    sd->add_movie(1, Genre::COMEDY, 0, true);
+    sd->add_movie(5, Genre::COMEDY, 0, true);
+    sd->add_movie(8,Genre::DRAMA,0, true);
+    sd->remove_movie(3);
+    sd->remove_movie(5);
+    std::cout << "--------------GROUP TESTING------------" << std::endl;
+    sd->add_group(1);
+    sd->add_group(2);
+    sd->add_group(3);
+    if(sd->add_group(1) != StatusType::SUCCESS)
+    {
+        std::cout << "success" << std::endl;
+    }
+    sd->add_user_to_group(1,1);
+    sd->remove_group(1);
+    sd->getGroupTree().print();
 }

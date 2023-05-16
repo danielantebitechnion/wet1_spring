@@ -26,7 +26,7 @@ private:
     Tree<int, User> m_allUsers; //Tree of all users in DB
     Tree<int, Group> m_allGroups; //Tree of all groups in DB
     Tree<int, Movie> m_allMovies; //Tree of all movies in DB
-    Tree<GenreTree, Movie*>* m_treeArrayByGenre; //Array of trees by genre
+    Tree<GenreTree, int> m_treeArrayByGenre[GENRE_AMOUNT+1]; //Array of trees by genre
     Tree<int, Tree<int, User*>> m_usersByGroup; //Tree of Trees of groups and their users within the group
 
 public:
@@ -42,11 +42,11 @@ public:
 	    return m_allGroups;
     }
 
-    Tree<int, Movie> getAllMovies(){
+    Tree<int, Movie> getAllMovies() const{
 	    return m_allMovies;
 	}
 
-    Tree<GenreTree, Movie*>* getGenreTree(Genre g)
+    Tree<GenreTree, int>* getGenreTree(Genre g)
     {
 	    return &m_treeArrayByGenre[static_cast<int>(g)];
     }

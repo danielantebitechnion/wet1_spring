@@ -3,12 +3,11 @@
 
 
 streaming_database::streaming_database() : m_allUsers(), m_allGroups(), m_allMovies(),
-                                           m_treeArrayByGenre(new Tree<GenreTree, Movie *>[GENRE_AMOUNT + 1]),
                                            m_usersByGroup() {
 }
 
 streaming_database::~streaming_database() {
-    delete[] m_treeArrayByGenre;
+
 }
 
 
@@ -17,11 +16,11 @@ StatusType streaming_database::add_movie(int movieId, Genre genre, int views, bo
         return StatusType::INVALID_INPUT;
     }
     try {
-        Movie newMovie(movieId, genre, views, vipOnly);
-        m_allMovies.insert(movieId, newMovie);
-        GenreTree newGenreTree(0.0, views, movieId);
-        m_treeArrayByGenre[static_cast<int>(genre)].insert(newGenreTree, &newMovie);
-        m_treeArrayByGenre[static_cast<int>(Genre::NONE)].insert(newGenreTree, &newMovie);
+        Movie toAdd = Movie(movieId, genre, views, vipOnly);
+        m_allMovies.insert(movieId, toAdd);
+        GenreTree newGenreTree = GenreTree(0.0, views, movieId);
+        m_treeArrayByGenre[static_cast<int>(genre)].insert(newGenreTree, movieId);
+        m_treeArrayByGenre[static_cast<int>(Genre::NONE)].insert(newGenreTree, movieId);
     } catch (std::bad_alloc &e) {
         return StatusType::ALLOCATION_ERROR;
     } catch (KeyAlreadyInTree &e) {
@@ -39,7 +38,7 @@ StatusType streaming_database::remove_movie(int movieId) {
         m_allMovies.remove(movieId);
         GenreTree newGenreTree = GenreTree(toDelete->getAverageRating(), toDelete->getViews(), movieId);
         m_treeArrayByGenre[static_cast<int>(toDelete->getGenre())].remove(newGenreTree);
-        m_treeArrayByGenre[static_cast<int>(Genre::NONE)].remove(newGenreTree);
+        m_treeArrayByGenre[GENRE_AMOUNT].remove(newGenreTree);
     } catch (std::bad_alloc &e) {
         return StatusType::ALLOCATION_ERROR;
     } catch (KeyNotInTree &e) {
@@ -53,8 +52,8 @@ StatusType streaming_database::add_user(int userId, bool isVip) {
         return StatusType::INVALID_INPUT;
     }
     try {
-        User user(userId, isVip);
-        m_allUsers.insert(userId, user);
+        User toAdd = User(userId, isVip);
+        m_allUsers.insert(userId, toAdd);
     } catch (KeyAlreadyInTree &e) {
         return StatusType::FAILURE;
     } catch (std::bad_alloc &e) {
@@ -98,8 +97,8 @@ StatusType streaming_database::add_group(int groupId) {
         return StatusType::INVALID_INPUT;
     }
     try {
-        Group *newGroup = new Group(groupId);
-        m_allGroups.insert(groupId, *newGroup);
+        Group toAdd = Group(groupId);
+        m_allGroups.insert(groupId, toAdd);
     } catch (KeyAlreadyInTree &e) {
         return StatusType::FAILURE;
     } catch (std::bad_alloc &e) {
@@ -120,8 +119,6 @@ StatusType streaming_database::remove_group(int groupId) {
         }
         m_allGroups.remove(groupId);
         Tree<int, User *> *userTreeInGroup = m_usersByGroup[groupId];
-
-        //TO-DO see Daniel's recent notes
     } catch (std::bad_alloc &e) {
         return StatusType::ALLOCATION_ERROR;
     } catch (KeyNotInTree &e) {
@@ -137,12 +134,15 @@ StatusType streaming_database::add_user_to_group(int userId, int groupId) {
     try {
         User *u = m_allUsers[userId];
         Group *g = m_allGroups[groupId];
-        std::cout << "hi" << std::endl;
         if (u->getUserGroup() != nullptr) {
-            std::cout << "hi2" << std::endl;
             return StatusType::FAILURE;
         }
         u->setUserGroup(g);
+        if(m_usersByGroup[groupId] == nullptr)
+        {
+            Tree<int, User*> newUserTree;
+            m_usersByGroup.insert(groupId, newUserTree);
+        }
         m_usersByGroup[groupId]->insert(userId, u);
         int currGenreViewsUser = 0;
         int groupViewBeforeJoiningGenre = 0;
@@ -151,15 +151,13 @@ StatusType streaming_database::add_user_to_group(int userId, int groupId) {
             u->setViewOfGroupBeforeJoining(static_cast<Genre>(i), groupViewBeforeJoiningGenre);
             currGenreViewsUser = u->getViewsByGenre(static_cast<Genre>(i));
             g->addTotalGroupMembersViewsByGenre(static_cast<Genre>(i), currGenreViewsUser);
-            if (u->isVip()) {
-                g->addGroupVipCounter(1);
-            }
+        }
+        if (u->isVip()) {
+            g->addGroupVipCounter(1);
         }
     } catch (KeyNotInTree &e) {
-        std::cout << "hi3" << std::endl;
         return StatusType::FAILURE;
     }
-    std::cout << "hi4" << std::endl;
     return StatusType::SUCCESS;
 }
 

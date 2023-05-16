@@ -14,10 +14,18 @@ public:
     GenreTree(double rating, int views, int id): m_movieRating(rating), m_movieViews(views), m_movieId(id) {}
 
     bool operator>(const GenreTree &rhs) const {
-        if (m_movieRating > rhs.m_movieRating)
+        if (m_movieRating > rhs.m_movieRating) {
             return true;
-        if (m_movieViews > rhs.m_movieViews)
+        }
+        if(m_movieRating < rhs.m_movieRating){
+            return false;
+        }
+        if (m_movieViews > rhs.m_movieViews) {
             return true;
+        }
+        if(m_movieViews < rhs.m_movieViews){
+            return false;
+        }
         return m_movieId < rhs.m_movieId;
     }
 
@@ -25,6 +33,11 @@ public:
         return rhs > *this;
     }
 
+    bool operator==(const GenreTree& rhs) const{
+        return m_movieId == rhs.m_movieId &&
+        m_movieViews == rhs.m_movieViews &&
+        m_movieRating == rhs.m_movieRating;
+    }
 };
 
 #endif //

@@ -1,7 +1,12 @@
 #include "Group.h"
 
-Group::Group(int groupID) : m_groupID(groupID), m_viewsAsGroup(new int[TOTAL_GENRES]),
-                            m_totalGroupMembersViews(new int[TOTAL_GENRES]), m_groupVipCounter(0){}
+Group::Group(int groupID) : m_groupID(groupID), m_totalGroupMembersViews(), m_groupVipCounter(0){
+    for(int i = 0; i < TOTAL_GENRES; i++)
+    {
+        m_totalGroupMembersViews[i] = 0;
+        m_viewsAsGroup[i] = 0;
+    }
+}
 
 // Getter for m_groupID
 int Group::getGroupID() const {
