@@ -1,3 +1,0 @@
-/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/CMakeFiles/rebuild_cache.dir
-/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/CMakeFiles/edit_cache.dir
-/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/CMakeFiles/DS_1_WET.dir
