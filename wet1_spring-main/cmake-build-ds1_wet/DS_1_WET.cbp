@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="DS_1_WET"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/97252/OneDrive\ -\ Technion/Technion/Semester\ 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/97252/OneDrive\ -\ Technion/Technion/Semester\ 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/97252/OneDrive\ -\ Technion/Technion/Semester\ 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/97252/OneDrive\ -\ Technion/Technion/Semester\ 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/97252/OneDrive\ -\ Technion/Technion/Semester\ 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/97252/OneDrive\ -\ Technion/Technion/Semester\ 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/97252/OneDrive\ -\ Technion/Technion/Semester\ 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/97252/OneDrive\ -\ Technion/Technion/Semester\ 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/97252/OneDrive\ -\ Technion/Technion/Semester\ 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/97252/OneDrive\ -\ Technion/Technion/Semester\ 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/97252/OneDrive\ -\ Technion/Technion/Semester\ 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/97252/OneDrive\ -\ Technion/Technion/Semester\ 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="DS_1_WET">
+				<Option output="/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/DS_1_WET.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/include/c++"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/include/c++/x86_64-pc-cygwin"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/include/c++/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/../../../../lib/../include/w32api"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/97252/OneDrive\ -\ Technion/Technion/Semester\ 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/Makefile&quot;  VERBOSE=1 DS_1_WET"/>
+					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/97252/OneDrive\ -\ Technion/Technion/Semester\ 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/97252/OneDrive\ -\ Technion/Technion/Semester\ 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/97252/OneDrive\ -\ Technion/Technion/Semester\ 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="DS_1_WET/fast">
+				<Option output="/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/DS_1_WET.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/include/c++"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/include/c++/x86_64-pc-cygwin"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/include/c++/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/../../../../lib/../include/w32api"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/97252/OneDrive\ -\ Technion/Technion/Semester\ 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/Makefile&quot;  VERBOSE=1 DS_1_WET/fast"/>
+					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/97252/OneDrive\ -\ Technion/Technion/Semester\ 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/97252/OneDrive\ -\ Technion/Technion/Semester\ 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/97252/OneDrive\ -\ Technion/Technion/Semester\ 8/234218/Wet_HW/DS_1_WET/cmake-build-ds1_wet/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/AVL_node.h">
+			<Option target="DS_1_WET"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/GenreTree.h">
+			<Option target="DS_1_WET"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/Group.cpp">
+			<Option target="DS_1_WET"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/Group.h">
+			<Option target="DS_1_WET"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/Movie.cpp">
+			<Option target="DS_1_WET"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/Movie.h">
+			<Option target="DS_1_WET"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/StreamingDBa1.cpp">
+			<Option target="DS_1_WET"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/StreamingDBa1.h">
+			<Option target="DS_1_WET"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/Tree.h">
+			<Option target="DS_1_WET"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/User.cpp">
+			<Option target="DS_1_WET"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/User.h">
+			<Option target="DS_1_WET"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/movieTest.cpp">
+			<Option target="DS_1_WET"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/97252/OneDrive - Technion/Technion/Semester 8/234218/Wet_HW/DS_1_WET/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
