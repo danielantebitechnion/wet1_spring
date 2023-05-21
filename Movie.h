@@ -20,7 +20,7 @@ public:
     double getAverageRating() const;
     int getViews() const;
     bool isVipOnly() const;
-    void increaseViews();
+    void increaseViews(int views);
     void updateRating(int rating);
     void printMovie() const;
 };

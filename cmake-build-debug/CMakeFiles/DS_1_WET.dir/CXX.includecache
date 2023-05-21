@@ -1,0 +1,76 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/danie/OneDrive/שולחן העבודה/wet1_spring-main/AVL_node.h
+iostream
+-
+
+C:/Users/danie/OneDrive/שולחן העבודה/wet1_spring-main/GenreTree.h
+
+C:/Users/danie/OneDrive/שולחן העבודה/wet1_spring-main/Group.h
+wet1util.h
+C:/Users/danie/OneDrive/שולחן העבודה/wet1_spring-main/wet1util.h
+Tree.h
+C:/Users/danie/OneDrive/שולחן העבודה/wet1_spring-main/Tree.h
+
+C:/Users/danie/OneDrive/שולחן העבודה/wet1_spring-main/Movie.cpp
+Movie.h
+C:/Users/danie/OneDrive/שולחן העבודה/wet1_spring-main/Movie.h
+iostream
+-
+
+C:/Users/danie/OneDrive/שולחן העבודה/wet1_spring-main/Movie.h
+wet1util.h
+C:/Users/danie/OneDrive/שולחן העבודה/wet1_spring-main/wet1util.h
+
+C:/Users/danie/OneDrive/שולחן העבודה/wet1_spring-main/StreamingDBa1.cpp
+StreamingDBa1.h
+C:/Users/danie/OneDrive/שולחן העבודה/wet1_spring-main/StreamingDBa1.h
+iostream
+-
+
+C:/Users/danie/OneDrive/שולחן העבודה/wet1_spring-main/StreamingDBa1.h
+wet1util.h
+C:/Users/danie/OneDrive/שולחן העבודה/wet1_spring-main/wet1util.h
+User.h
+C:/Users/danie/OneDrive/שולחן העבודה/wet1_spring-main/User.h
+Group.h
+C:/Users/danie/OneDrive/שולחן העבודה/wet1_spring-main/Group.h
+Movie.h
+C:/Users/danie/OneDrive/שולחן העבודה/wet1_spring-main/Movie.h
+GenreTree.h
+C:/Users/danie/OneDrive/שולחן העבודה/wet1_spring-main/GenreTree.h
+
+C:/Users/danie/OneDrive/שולחן העבודה/wet1_spring-main/Tree.h
+AVL_node.h
+C:/Users/danie/OneDrive/שולחן העבודה/wet1_spring-main/AVL_node.h
+
+C:/Users/danie/OneDrive/שולחן העבודה/wet1_spring-main/User.h
+wet1util.h
+C:/Users/danie/OneDrive/שולחן העבודה/wet1_spring-main/wet1util.h
+Group.h
+C:/Users/danie/OneDrive/שולחן העבודה/wet1_spring-main/Group.h
+AVL_node.h
+C:/Users/danie/OneDrive/שולחן העבודה/wet1_spring-main/AVL_node.h
+iostream
+-
+
+C:/Users/danie/OneDrive/שולחן העבודה/wet1_spring-main/movieTest.cpp
+Movie.h
+C:/Users/danie/OneDrive/שולחן העבודה/wet1_spring-main/Movie.h
+StreamingDBa1.h
+C:/Users/danie/OneDrive/שולחן העבודה/wet1_spring-main/StreamingDBa1.h
+string
+-
+iostream
+-
+
+C:/Users/danie/OneDrive/שולחן העבודה/wet1_spring-main/wet1util.h
+stdexcept
+-
+

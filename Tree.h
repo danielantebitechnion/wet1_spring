@@ -21,6 +21,7 @@ public:
     int getSize() const;
     Data* operator[](const Key& key);
     Data* find_by_index(int index);
+    AVL_node<Key, Data>* getRoot();
 
     // for tests:
     bool validCheck();
@@ -28,7 +29,10 @@ public:
 
     virtual ~Tree();
 };
-
+template<class Key, class Data>
+AVL_node<Key, Data>* Tree<Key,Data>::getRoot() {
+    return root;
+}
 template<class Key, class Data>
 void Tree<Key, Data>::insert(const Key &key, const Data &data) {
     if(this->root == nullptr){
@@ -69,8 +73,6 @@ template<class Key, class Data>
 int Tree<Key, Data>::getSize() const {
     return size;
 }
-
-
 
 template<class Key, class Data>
 int Tree<Key, Data>::realHeight(AVL_node<Key, Data>* node){

@@ -29,8 +29,8 @@ bool Movie::isVipOnly() const {
     return m_vipOnly;
 }
 
-void Movie::increaseViews(){
-    this->m_views++;
+void Movie::increaseViews(int views){
+    this->m_views+=views;
 }
 
 void Movie::updateRating(int rating){

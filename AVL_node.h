@@ -1,8 +1,6 @@
 #ifndef DS_1_WET_AVL_NODE_H
 #define DS_1_WET_AVL_NODE_H
 
-#ifndef DS_WET1_AVL_node_H
-#define DS_WET1_AVL_node_H
 #include <iostream>
 
 
@@ -33,8 +31,8 @@ protected:
 public:
     AVL_node(Key key, Data data):key(key), data(data), height(0), left(nullptr), right(nullptr), size(1){}
     AVL_node(const AVL_node& toCopy);
-    Data* getData() {return data;}
-    Data* getData() const {return data;}
+    Data getData() {return data;}
+    Data getData() const {return data;}
 
     int getHeight() const;
     int getSize() const;
@@ -394,4 +392,3 @@ int AVL_node<Key, Data>::getSize() const {
 }
 
 #endif //DS_WET1_AVL_node_H
-#endif //DS_1_WET_AVL_NODE_H

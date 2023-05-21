@@ -28,6 +28,7 @@ private:
     Tree<int, Movie> m_allMovies; //Tree of all movies in DB
     Tree<GenreTree, int> m_treeArrayByGenre[GENRE_AMOUNT+1]; //Array of trees by genre
     Tree<int, Tree<int, User*>> m_usersByGroup; //Tree of Trees of groups and their users within the group
+    int m_topRatedMovieIdByGenre[GENRE_AMOUNT]{};
 
 public:
 	// <DO-NOT-MODIFY> {

@@ -16,7 +16,6 @@ private:
     int m_viewsByGenre[GENRE_AMOUNT];
     int m_viewOfGroupBeforeJoining[GENRE_AMOUNT];
     Group* m_currentGroup;
-    AVL_node<int, User*> m_rootOfUserGroup;
 public:
     User() = default;
     User(int id, bool isVip);
@@ -28,10 +27,8 @@ public:
     Group* getUserGroup() const;
     void addViewsByGenre(Genre genre, int views); // Setter for m_viewsByGenre
     int getViewOfGroupBeforeJoining(Genre genre) const; // Getter for group views in genere before joining
-    AVL_node<int, User*> getRootOfUserGroup() const;
     void setViewOfGroupBeforeJoining(Genre genre, int views); // Setter for views of group before joining
     void setUserGroup(Group* group);
-    void setRootOfUserGroup(AVL_node<int, User*> const &user) ;
     void print() const;
 };
 
