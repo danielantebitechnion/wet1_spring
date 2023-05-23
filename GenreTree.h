@@ -1,6 +1,3 @@
-#ifndef DS_1_WET_GENRETREE_H
-#define DS_1_WET_GENRETREE_H
-
 #ifndef GENRE_TREE_H
 #define GENRE_TREE_H
 
@@ -16,19 +13,15 @@ public:
     bool operator>(const GenreTree &rhs) const {
         if (m_movieRating > rhs.m_movieRating) {
             return true;
+        } else if (m_movieRating == rhs.m_movieRating) {
+            if (m_movieViews > rhs.m_movieViews) {
+                return true;
+            } else if (m_movieViews == rhs.m_movieViews) {
+                return (m_movieId < rhs.m_movieId);
+            }
         }
-        if(m_movieRating < rhs.m_movieRating){
-            return false;
-        }
-        if (m_movieViews > rhs.m_movieViews) {
-            return true;
-        }
-        if(m_movieViews < rhs.m_movieViews){
-            return false;
-        }
-        return m_movieId < rhs.m_movieId;
+        return false;
     }
-
     bool operator<(const GenreTree &rhs) const {
         return rhs > *this;
     }
@@ -39,7 +32,5 @@ public:
         m_movieRating == rhs.m_movieRating;
     }
 };
-
-#endif //
 
 #endif //DS_1_WET_GENRETREE_H

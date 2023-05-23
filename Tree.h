@@ -3,7 +3,6 @@
 
 
 #include "AVL_node.h"
-
 class TreeEmpty: public std::exception{};
 
 template<class Key, class Data>

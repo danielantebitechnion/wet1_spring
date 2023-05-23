@@ -2,11 +2,17 @@
 #include "StreamingDBa1.h"
 
 
-
+/*
 int main() {
 
-    /*------------------------CREATING USERS-------------------------*/
     streaming_database *sd = new streaming_database();
+    sd->add_movie(1,Genre::DRAMA,1, false);
+    sd->rate_movie(8287,1,136);
+    sd->add_movie(2,Genre::DRAMA,1, false);
+    sd->add_movie(3,Genre::DRAMA,1, false);
+    sd->add_movie(4,Genre::DRAMA,1, false);
+    sd->remove_movie(1);
+    /*
     sd->add_user(1, true);
     sd->add_user(2, false);
     sd->add_user(3, true);
@@ -49,4 +55,6 @@ int main() {
     }
     sd->rate_movie(1, 1, 50);
     sd->getGroupTree().print();
+
 }
+*/

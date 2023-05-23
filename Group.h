@@ -8,10 +8,10 @@ static const int TOTAL_GENRES = 4;
 
 class Group {
 private:
-    int m_totalGroupMembersViews[TOTAL_GENRES];
     int m_groupID;
-    int m_viewsAsGroup[TOTAL_GENRES];
+    int m_totalGroupMembersViews[TOTAL_GENRES];
     int m_groupVipCounter;
+    int m_viewsAsGroup[TOTAL_GENRES];
 public:
     Group() = default;
     Group(int groupID);

@@ -7,10 +7,10 @@ class Movie {
 private:
     int m_movieId;
     Genre m_genre;
-    int m_totalRating; // sum of all ratings
-    int m_raterCount; // amount of watchers that rated the movie
     int m_views; // total views for a movie
     bool m_vipOnly; // define if only vip users can watch this movie
+    int m_totalRating; // sum of all ratings
+    int m_raterCount; // amount of watchers that rated the movie
 public:
     Movie() = default;
     Movie(int movieId, Genre genre, int views, bool vipOnly);

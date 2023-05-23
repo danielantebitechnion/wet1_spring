@@ -1,10 +1,9 @@
 #include "Group.h"
 
-Group::Group(int groupID) : m_groupID(groupID), m_totalGroupMembersViews(), m_groupVipCounter(0){
-    for(int i = 0; i < TOTAL_GENRES; i++)
-    {
-        m_totalGroupMembersViews[i] = 0;
+Group::Group(int groupID) : m_groupID(groupID), m_groupVipCounter(0){
+    for (int i=0;i<TOTAL_GENRES;i++){
         m_viewsAsGroup[i] = 0;
+        m_totalGroupMembersViews[i] = 0;
     }
 }
 

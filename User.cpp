@@ -1,17 +1,18 @@
 #include "User.h"
 
-User::User(int id, bool isVip)  : m_id(id), m_isVip(isVip), m_currentGroup(nullptr){
-    for(int i = 0; i < GENRE_AMOUNT; i++)
-    {
-        m_viewsByGenre[i] = 0;
+User::User(int id, bool isVip)  : m_id(id), m_isVip(isVip), m_currentGroup(nullptr), m_isInGroup(false),m_viewsByGenre{},m_viewOfGroupBeforeJoining{}{
+    for(int i=0;i<TOTAL_GENRES;i++){
         m_viewOfGroupBeforeJoining[i] = 0;
+        m_viewsByGenre[i] = 0;
     }
 }
 
 int User::getId() const {
     return m_id;
 }
-
+bool User::isUserInGroup() const{
+    return m_isInGroup;
+}
 bool User::isVip() const {
     return m_isVip;
 }
@@ -37,7 +38,12 @@ void User::setViewOfGroupBeforeJoining(Genre genre, int views) {
 }
 
 void User::setUserGroup(Group* group){
+    m_isInGroup = true;
     m_currentGroup = group;
+}
+
+void User::GroupRemoved(){
+    m_isInGroup = false;
 }
 
 void User::print() const {

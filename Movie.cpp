@@ -36,6 +36,7 @@ void Movie::increaseViews(int views){
 void Movie::updateRating(int rating){
     m_raterCount++;
     m_totalRating += rating;
+    m_views++;
 }
 
 void Movie::printMovie() const {
