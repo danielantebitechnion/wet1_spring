@@ -2,14 +2,17 @@
 #include <iostream>
 
 
-streaming_database::streaming_database() : m_allUsers(), m_allGroups(), m_allMovies(),
-                                           m_usersByGroup() {
-    for(int & i : m_topRatedMovieIdByGenre)
-    {
+streaming_database::streaming_database()
+        : m_allUsers(), m_allGroups(), m_allMovies(), m_usersByGroup(),
+          m_treeArrayByGenre{} // Initializes all elements to their default value
+{
+    for (int i = 0; i <= GENRE_AMOUNT; i++) {
+        m_treeArrayByGenre[i] = Tree<GenreTree, int>();
+    }
+    for (int& i : m_topRatedMovieIdByGenre) {
         i = 0;
     }
 }
-
 streaming_database::~streaming_database() = default;
 
 static void UpdateTopRatedMovieId(AVL_node<GenreTree,int> *node,int *topRatedMovie){
@@ -93,8 +96,8 @@ StatusType streaming_database::remove_user(int userId) {
             }
             int userViewsPerGenre = 0;
             for (int i = 0; i < GENRE_AMOUNT; ++i) {
-                userViewsPerGenre = u->getViewsByGenre(static_cast<Genre>(i));
-                g->addTotalGroupMembersViewsByGenre(static_cast<Genre>(i), -userViewsPerGenre);
+                userViewsPerGenre = u->getViewsByGenre(static_cast<Genre>(i)) + (u->getUserGroup()->getViewsAsGroupByGenre(static_cast<Genre>(i)) - u->getViewOfGroupBeforeJoining(static_cast<Genre>(i))) ;
+                g->addTotalGroupMembersViewsByGenre(static_cast<Genre>(i), -1*userViewsPerGenre);
             }
             m_usersByGroup[g->getGroupID()]->remove(userId);
         }
@@ -169,18 +172,21 @@ StatusType streaming_database::add_user_to_group(int userId, int groupId) {
     try {
         User *u = m_allUsers[userId];
         Group *g = m_allGroups[groupId];
-        if (u== nullptr || g == nullptr || u->isUserInGroup()){
+        if (u== nullptr || g == nullptr){
+            return StatusType::FAILURE;
+        }
+        if(u->isUserInGroup()){
             return StatusType::FAILURE;
         }
         u->setUserGroup(g);
         m_usersByGroup[groupId]->insert(userId, u);
-        int currGenreViewsUser = 0;
-        int groupViewBeforeJoiningGenre = 0;
+        int UserViewsByGenre = 0;
+        int GroupWatchViewsByGenreBeforeUserJoined = 0;
         for (int i = 0; i < GENRE_AMOUNT; ++i) {
-            groupViewBeforeJoiningGenre = m_allGroups[groupId]->getViewsAsGroupByGenre(static_cast<Genre>(i));
-            m_allUsers[userId]->setViewOfGroupBeforeJoining(static_cast<Genre>(i), groupViewBeforeJoiningGenre);
-            currGenreViewsUser = m_allUsers[userId]->getViewsByGenre(static_cast<Genre>(i));
-            m_allGroups[groupId]->addTotalGroupMembersViewsByGenre(static_cast<Genre>(i), currGenreViewsUser);
+            GroupWatchViewsByGenreBeforeUserJoined = g->getViewsAsGroupByGenre(static_cast<Genre>(i));
+            u->setViewOfGroupBeforeJoining(static_cast<Genre>(i), GroupWatchViewsByGenreBeforeUserJoined);
+            UserViewsByGenre = u->getViewsByGenre(static_cast<Genre>(i));
+            g->addTotalGroupMembersViewsByGenre(static_cast<Genre>(i), UserViewsByGenre);
         }
         if (m_allUsers[userId]->isVip()) {
             m_allGroups[groupId]->addGroupVipCounter(1);
@@ -198,7 +204,10 @@ StatusType streaming_database::user_watch(int userId, int movieId) {
     try {
         User *u = m_allUsers[userId];
         Movie *movie = m_allMovies[movieId];
-        if(u== nullptr || movie == nullptr || ((!u->isVip()) && movie->isVipOnly()) ){
+        if(u== nullptr || movie == nullptr ){
+            return StatusType::FAILURE;
+        }
+        if((!u->isVip()) && movie->isVipOnly()){
             return StatusType::FAILURE;
         }
         u->addViewsByGenre(movie->getGenre(), 1);
@@ -326,7 +335,10 @@ StatusType streaming_database::rate_movie(int userId, int movieId, int rating) {
     try {
         User *u = m_allUsers[userId];
         Movie *movie = m_allMovies[movieId];
-        if (u== nullptr || movie == nullptr || ((!u->isVip()) && movie->isVipOnly())){
+        if (u== nullptr || movie == nullptr ){
+            return StatusType::FAILURE;
+        }
+        if((!u->isVip()) && movie->isVipOnly()){
             return StatusType::FAILURE;
         }
         GenreTree oldStats = GenreTree(movie->getAverageRating(),movie->getViews(),movieId);

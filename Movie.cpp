@@ -18,7 +18,7 @@ double Movie::getAverageRating() const {
     {
         return 0;
     }
-    return (m_totalRating/m_raterCount);
+    return (((double)m_totalRating/(double)m_raterCount));
 }
 
 int Movie::getViews() const {
@@ -36,7 +36,6 @@ void Movie::increaseViews(int views){
 void Movie::updateRating(int rating){
     m_raterCount++;
     m_totalRating += rating;
-    m_views++;
 }
 
 void Movie::printMovie() const {
