@@ -1,15 +1,30 @@
 #include "Group.h"
+#include "User.h"
 
-Group::Group(int groupID) : m_groupID(groupID), m_groupVipCounter(0){
+Group::Group(int groupID) : m_groupID(groupID), m_groupVipCounter(0),m_groupUsers(){
     for (int i=0;i<TOTAL_GENRES;i++){
         m_viewsAsGroup[i] = 0;
         m_totalGroupMembersViews[i] = 0;
     }
 }
 
+int Group::GroupSize() const {
+    return m_groupUsers.getSize();
+}
+
+Tree<int,User*>* Group::getGroupUsers() {
+    return &m_groupUsers;
+}
+void Group::addUserToGroup(int id,User* u){
+    m_groupUsers.insert(id,u);
+}
 // Getter for m_groupID
 int Group::getGroupID() const {
     return m_groupID;
+}
+
+void Group::removeUserFromGroup(int id) {
+    m_groupUsers.remove(id);
 }
 
 // Getter for m_viewsAsGroup

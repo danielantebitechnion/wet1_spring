@@ -8,6 +8,7 @@ static const int GENRE_AMOUNT = 4;
 #include "AVL_node.h"
 #include <iostream>
 
+class Group;
 
 class User {
 private:

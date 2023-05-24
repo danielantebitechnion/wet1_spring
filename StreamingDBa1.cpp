@@ -3,7 +3,7 @@
 
 
 streaming_database::streaming_database()
-        : m_allUsers(), m_allGroups(), m_allMovies(), m_usersByGroup(),
+        : m_allUsers(), m_allGroups(), m_allMovies(),
           m_treeArrayByGenre{} // Initializes all elements to their default value
 {
     for (int i = 0; i <= GENRE_AMOUNT; i++) {
@@ -99,7 +99,7 @@ StatusType streaming_database::remove_user(int userId) {
                 userViewsPerGenre = u->getViewsByGenre(static_cast<Genre>(i)) + (u->getUserGroup()->getViewsAsGroupByGenre(static_cast<Genre>(i)) - u->getViewOfGroupBeforeJoining(static_cast<Genre>(i))) ;
                 g->addTotalGroupMembersViewsByGenre(static_cast<Genre>(i), -1*userViewsPerGenre);
             }
-            m_usersByGroup[g->getGroupID()]->remove(userId);
+            g->removeUserFromGroup(userId);
         }
         m_allUsers.remove(userId);
     } catch (std::bad_alloc &e) {
@@ -115,8 +115,6 @@ StatusType streaming_database::add_group(int groupId) {
     try {
         Group toAdd = Group(groupId);
         m_allGroups.insert(groupId, toAdd);
-        Tree<int, User*> newUserTree;
-        m_usersByGroup.insert(groupId, newUserTree);
     } catch (KeyAlreadyInTree &e) {
         return StatusType::FAILURE;
     } catch (std::bad_alloc &e) {
@@ -155,9 +153,8 @@ StatusType streaming_database::remove_group(int groupId) {
         for (int i = 0; i < GENRE_AMOUNT; ++i) {
             tempGroupViews[i] = g->getViewsAsGroupByGenre(static_cast<Genre>(i));
         }
-        Tree<int, User *> *userTreeInGroup = m_usersByGroup[groupId];
-        Update_Users_Views(userTreeInGroup->getRoot(),tempGroupViews);
-        m_usersByGroup.remove(groupId);
+        Tree<int,User*> *groupUsers = g->getGroupUsers();
+        Update_Users_Views(groupUsers->getRoot(),tempGroupViews);
         m_allGroups.remove(groupId);
     } catch (std::bad_alloc &e) {
         return StatusType::ALLOCATION_ERROR;
@@ -179,7 +176,7 @@ StatusType streaming_database::add_user_to_group(int userId, int groupId) {
             return StatusType::FAILURE;
         }
         u->setUserGroup(g);
-        m_usersByGroup[groupId]->insert(userId, u);
+        g->addUserToGroup(userId,u);
         int UserViewsByGenre = 0;
         int GroupWatchViewsByGenreBeforeUserJoined = 0;
         for (int i = 0; i < GENRE_AMOUNT; ++i) {
@@ -238,7 +235,7 @@ StatusType streaming_database::group_watch(int groupId, int movieId) {
         if (group == nullptr || movie == nullptr){
             return StatusType::FAILURE;
         }
-        int group_size = m_usersByGroup[groupId]->getSize();
+        int group_size = group->GroupSize();
         if((movie->isVipOnly() && group->getGroupVipCounter()==0) || group_size == 0){
             return StatusType::FAILURE;
         }
@@ -367,7 +364,7 @@ output_t<int> streaming_database::get_group_recommendation(int groupId) {
             return StatusType::FAILURE;
         }
 
-        int groupSize = m_usersByGroup[groupId]->getSize();
+        int groupSize = group->GroupSize();
         if(groupSize == 0){
             return StatusType::FAILURE;
         }

@@ -33,6 +33,7 @@ public:
     AVL_node(const AVL_node& toCopy);
     Data getData() {return data;}
     Data getData() const {return data;}
+    Key getKey() {return key;}
 
     int getHeight() const;
     int getSize() const;

@@ -3,8 +3,10 @@
 
 #include "wet1util.h"
 #include "Tree.h"
+
 static const int EMPTY = 0;
 static const int TOTAL_GENRES = 4;
+class User;
 
 class Group {
 private:
@@ -12,6 +14,8 @@ private:
     int m_totalGroupMembersViews[TOTAL_GENRES];
     int m_groupVipCounter;
     int m_viewsAsGroup[TOTAL_GENRES];
+    Tree<int, User*> m_groupUsers;
+
 public:
     Group() = default;
     Group(int groupID);
@@ -25,6 +29,10 @@ public:
     int getGroupVipCounter() const;
     void addGroupVipCounter(int incOrDec);
     void print() const;
+    Tree<int,User*>* getGroupUsers();
+    void addUserToGroup(int id,User* u);
+    void removeUserFromGroup(int id);
+    int GroupSize() const;
 };
 
 

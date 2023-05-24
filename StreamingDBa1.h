@@ -26,7 +26,6 @@ private:
     Tree<int, User> m_allUsers; //Tree of all users in DB
     Tree<int, Group> m_allGroups; //Tree of all groups in DB
     Tree<int, Movie> m_allMovies; //Tree of all movies in DB
-    Tree<int, Tree<int, User*>> m_usersByGroup; //Tree of Trees of groups and their users within the group
     Tree<GenreTree, int> m_treeArrayByGenre[GENRE_AMOUNT+1]; //Array of trees by genre
     int m_topRatedMovieIdByGenre[GENRE_AMOUNT]{};
 
@@ -50,11 +49,6 @@ public:
     Tree<GenreTree, int>* getGenreTree(Genre g)
     {
 	    return &m_treeArrayByGenre[static_cast<int>(g)];
-    }
-
-    Tree<int, User*> getUserGroupTree(int group)
-    {
-	    return *m_usersByGroup[group];
     }
 
 	streaming_database();
